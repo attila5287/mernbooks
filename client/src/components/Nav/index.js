@@ -4,9 +4,9 @@ import { Animated } from 'react-animated-css';
 
 function Nav() {
   return (
-		<nav className='navbar navbar-expand navbar-dark bg-primary p-2 mb-2'>
+		<nav className='navbar navbar-expand navbar-dark bg-transparent py-0 my-2'>
 			<a
-				className='navbar-brand bg-transparent'
+				className='navbar-brand bg-secondary px-3'
 				href='https://mernbooks.herokuapp.com'
 			>
 				<Animated
@@ -24,10 +24,26 @@ function Nav() {
 					isVisible={true}
 					animationInDelay={1000}
 				>
-					<i className='text-xl fas fa-info-circle'></i>
+					<i className='text-lg fas fa-info-circle'></i>
 					<i>
-						<small> mongoDB, express, React, nodejs</small>
+						<small className='text-muted text-sm'>
+							{' '}
+							mongoDB, express, React, nodejs
+						</small>
 					</i>
+				</Animated>
+			</a>
+			<a
+				className='nav-item nav-link bg-transparent'
+				href='https://attila5287.github.io/portfolio/'
+			>
+				<Animated
+					animationIn='bounceInRight'
+					isVisible={true}
+					animationInDelay={1250}
+				>
+					<i className='text-lg fab fa-github'></i>
+					attila5287
 				</Animated>
 			</a>
 		</nav>

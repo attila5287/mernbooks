@@ -3,6 +3,7 @@ import logo from '.././logo.svg';
 import '.././App.css';
 import {Animated} from 'react-animated-css';
 import Col from 'react-bootstrap/Col';
+import Footer from "../components/Footer";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Nav from 'react-bootstrap/Nav';
@@ -45,7 +46,7 @@ function Books() {
 
   return (
 		<div className='mini'>
-			<Jumbotron className='bg-dark rounded py-2 mt-0 my-2'>
+			<Jumbotron className='bg-secondary rounded py-2 mt-0 my-2'>
 				<h1 className='maxi d-flex justify-content-center align-items-center'>
 					<Animated
 						animationIn='zoomIn'
@@ -56,7 +57,7 @@ function Books() {
 						<i className='fab fa-google bg-danger p-1 rounded-4xl'></i>
 						<img
 							src={logo}
-							className='border-light border-med img-thumbnail rounded-circle img-mini App-logo-smr ml-1 mr-0 px-0 py-1'
+							className='border-dark border-med img-thumbnail rounded-circle img-mini App-logo-smr ml-1 mr-0 px-0 py-1'
 							alt='logo'
 						/>
 						<img
@@ -83,7 +84,7 @@ function Books() {
 						isVisible={true}
 						animationInDelay={1250}
 					>
-						<h1 className='maxi bg-success text-light p-1 rounded h-100'>
+						<h1 className='maxi bg-purple text-light p-1 rounded h-100'>
 							<i className='fab fa-searchengin'></i>
 						</h1>
 					</Animated>
@@ -115,14 +116,22 @@ function Books() {
 
       
 			<Row >
-				<Col xs={1} className='text-right px-1'>
-          <h1 className='text-center medi fas fa-angle-double-down bg-primary p-1 rounded-lg'></h1>
-          <hr className='my-1 border-light' />
-          <br />
-          <div className='rotate-text text-lg pb-2'><b>
+        <Col xs={ 1 } className='text-right px-1'>
+          	<Animated
+						animationIn='bounceInUp'
+						isVisible={true}
+						animationInDelay={1500}
+					>
+          <h1 className='text-center medi fas fa-angle-double-down bg-success px-2 py-5 rounded-lg'></h1>
+          <div className='rotate-text text-nowrap text-2xl'><b>
+            <i>
             Search Results
+            </i>
+          <i className='fas fa-angle-right mx-4 bg-success py-2 px-3 rounded'></i>
           </b>
-          </div>
+            </div>
+            
+          </Animated>
       </Col>
 				<Col xs={11} className='pl-1'>
 					{books.length ? (
@@ -137,18 +146,18 @@ function Books() {
 									<ListItem key={idx}>
 										<div className='d-flex flex-row justify-content-between bg-secondary p-1 rounded-xl'>
 											<img
-												src={book.volumeInfo.imageLinks.smallThumbnail}
+												src={book?.volumeInfo?.imageLinks?.smallThumbnail}
 												alt='thumbnail'
 												className='img-mini rounded-lg shadow'
 											/>
-											<a className='nav-link' href={'/api/book/' + book._id}>
+											<a className='nav-link' href={'/api/book/' + book?._id}>
 												<span className='text-capitalize'>
-													{book.volumeInfo.title}
+													{book?.volumeInfo?.title}
 												</span>{' '}
 												by{' '}
 												<strong>
 													<i className='text-reg text-primary'>
-														{book.volumeInfo.authors[0]}
+														{book?.volumeInfo?.authors?  book.volumeInfo.authors[0] : ''}
 													</i>
 												</strong>
 											</a>
@@ -168,7 +177,9 @@ function Books() {
 						<h3>No Results to Display</h3>
 					)}
 				</Col>
-			</Row>
+      </Row>
+      <Footer>
+      </Footer>
 		</div>
 	);
 }

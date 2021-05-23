@@ -8,11 +8,12 @@
 }
 .App-logo-sms {
   animation: App-logo-spin infinite 5s ease-in-out;
-  height: 70px;
+  height: 7rem;
 }
 .App-logo-smr {
   animation: App-logo-rev infinite 5s ease-in-out;
   height: 45px;
+  width: 50px;
 }
 .App-logo-xs {
   animation: App-logo-spin infinite 2.5s linear;
