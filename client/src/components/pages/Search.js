@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
-import logo from '.././logo.svg';
-import '.././App.css';
 import {Animated} from 'react-animated-css';
 import Col from 'react-bootstrap/Col';
-import Footer from "../components/Footer";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Nav from 'react-bootstrap/Nav';
+import Footer from "../Footer";
+import DeleteBtn from "../DeleteBtn";
 import Form from 'react-bootstrap/Form';
-import API from "../utils/API";
-import {Row, Container} from "../components/Grid";
-import {List, ListItem} from "../components/List";
-import {Input, TextArea, FormBtn} from "../components/Form";
+import {Row, Container} from "../Grid";
+import {List, ListItem} from "../List";
+import {Input, TextArea, FormBtn} from "../Form";
+import API from '../../utils/API';
 
-function Books() {
+function Search() {
   // Setting our component's initial state
   const [books,
     setBooks] = useState([])
@@ -46,37 +42,6 @@ function Books() {
 
   return (
 		<div className='mini'>
-			<Jumbotron className='bg-secondary rounded py-2 mt-0 my-2'>
-				<h1 className='maxi d-flex justify-content-center align-items-center'>
-					<Animated
-						animationIn='zoomIn'
-						isVisible={true}
-						animationInDelay={1250}
-						className='d-flex justify-content-center align-items-center'
-					>
-						<i className='fab fa-google bg-danger p-1 rounded-4xl'></i>
-						<img
-							src={logo}
-							className='border-dark border-med img-thumbnail rounded-circle img-mini App-logo-smr ml-1 mr-0 px-0 py-1'
-							alt='logo'
-						/>
-						<img
-							src={logo}
-							className='App-logo-sms m-0 p-0'
-							alt='logo'
-						/>
-						<i className='text-warning'> g </i>
-						<i className='text-primary'> l </i>
-						<i className='text-success'> e </i>
-						<span className='mx-1'>
-							<i className='mx-1 text-4xl fas fa-book-open p-1 bg-info rounded'></i>
-							<p className='text-lg text-secondary my-0'>
-								<i>Books API </i>
-							</p>
-						</span>
-					</Animated>
-				</h1>
-			</Jumbotron>
 			<Row className='my-2'>
 				<Col xs={2}>
 					<Animated
@@ -184,4 +149,4 @@ function Books() {
 	);
 }
 
-export default Books;
+export default Search;

@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Books from './pages/Books';
-import Nav from './components/Nav';
-
+import PortfolioContainer from './components/PortfolioContainer';
+import NavTabs from './components/NavTabs';
 
 function App() {
   return (
-    <div className='App'>
-			<Nav />
-			<Books />
+		<div className='App'>
+			<PortfolioContainer />
 		</div>
 	);
 }

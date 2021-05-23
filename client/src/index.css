@@ -1,3 +1,7 @@
+html,
+body {
+  font-size: 0.85rem;
+}
 body {
   margin: 0;
   padding: 0;
@@ -15,10 +19,6 @@ a {
   padding:0.25rem;
   text-decoration: none;
   font-weight: bold;
-}
-html,
-body {
-  font-size: 0.85rem;
 }
 
 a.nav-a {
@@ -300,4 +300,15 @@ tbody td:last-child {
     position: -webkit-sticky;
     position: sticky;
   }
+}
+
+.text-green {
+  color: springgreen;
+}
+
+.text-blue{
+  color: darkblue;
+}
+.text-red{
+  color: crimson;
 }

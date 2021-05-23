@@ -11,22 +11,19 @@ Node, Express and MongoDB so that users can save books to review or purchase lat
 ```
 In this activity, you'll create a new React-based Google Books Search app. 
 
-- [ ] -  create React components, work with helper/util functions, and utilize React lifecycle methods to query and display books based on user searches. 
+- [x] -  create React components, work with helper/util functions, and utilize React lifecycle methods to query and display books based on user searches. 
 
-- [ ] -  Deploy this application using Heroku
+- [x] -  Deploy this application using Heroku
 
 This application requires at minimum 2 pages, check out the following mockup images for each page:
 
-- [ ] -  [Search](Search.png) - User can search for books via the Google Books API and render them here. User has the option to "View" a book, bringing them to the book on Google Books, or "Save" a book, saving it to the Mongo database.
+- [x] -  [Search](Search.png) - User can search for books via the Google Books API and render them here. User has the option to "View" a book, bringing them to the book on Google Books, or "Save" a book, saving it to the Mongo database.
 - [ ] - [Saved](Saved.png) - Renders all books saved to the Mongo database. User has an option to "View" the book, bringing them to the book on Google Books, or "Delete" a book, removing it from the Mongo database.
 
 - [x] - 1. Start by using the `create-react-express` boilerplate
-
 - [x] - 2. Add code to connect to a MongoDB database named `googlebooks` using the mongoose npm package.
-
-- [ ] - 3. Using mongoose, then create a Book schema.
-
-- [ ] - 4. At a minimum, books should have each of the following fields:
+- [x] - 3. Using mongoose, then create a Book schema.
+- [x] - 4. At a minimum, books should have each of the following fields:
 
 ![react](https://raw.githubusercontent.com/attila5287/img_readme/main/new/react_text.ico)
 |DB|MODEL|
@@ -60,8 +57,8 @@ This application requires at minimum 2 pages, check out the following mockup ima
 
 - [ ] -  `*` (get) - Will load your single HTML page in `client/build/index.html`. Make sure you have this _after_ all other routes are defined.
 
-- [ ] - Deploy to Heroku once complete.
-- [ ] - You must use Create React App and current versions of React and React-Router-Dom for this assignment.
+- [x] - Deploy to Heroku once complete.
+- [x] - You must use Create React App and current versions of React and React-Router-Dom for this assignment.
 
 - - -
 
