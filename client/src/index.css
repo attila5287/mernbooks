@@ -5,7 +5,7 @@ body {
 }
 
 a {
-  background-color: lavender;
+  /* background-color: lavender; */
   border-radius: 0.5rem;
   padding:0.25rem;
   text-decoration: none;

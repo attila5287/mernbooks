@@ -124,19 +124,36 @@ function Books() {
           </b>
           </div>
       </Col>
-				<Col xs={11}>
+				<Col xs={11} className='pl-1'>
 					{books.length ? (
 						<List>
 							{books.map((book, idx) => {
 								return (
 									<ListItem key={idx}>
-										<a href={'/books/' + book._id}>
-											<strong>
-												{book.volumeInfo.title}
-												by {book.author}
-											</strong>
-										</a>
-										<DeleteBtn onClick={() => {}} />
+										<div className='d-flex flex-row justify-content-between bg-secondary p-1 rounded-xl'>
+											<img
+												src={book.volumeInfo.imageLinks.smallThumbnail}
+												alt='thumbnail'
+												className='img-mini rounded-lg shadow'
+											/>
+											<a class='nav-link' href={'/api/book/' + book._id}>
+												<span className='text-capitalize'>
+													{book.volumeInfo.title}
+												</span>{' '}
+												by{' '}
+												<strong>
+													<i className='text-reg text-primary'>
+														{book.volumeInfo.authors[0]}
+													</i>
+												</strong>
+											</a>
+											<span className='fa-pull-right'>
+												<DeleteBtn
+													className='px-1 py-0 rounded-lg bg-danger text-light'
+													onClick={() => {}}
+												/>
+											</span>
+										</div>
 									</ListItem>
 								);
 							})}
