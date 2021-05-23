@@ -11,6 +11,9 @@ body {
 .bg-purple {
 background-color: mediumpurple;
 }
+.text-purple {
+color: mediumpurple;
+}
 
 
 a {
@@ -207,7 +210,7 @@ transform: rotate(90deg);
 }
 
 .fa-stack {
-  font-size: 1.0rem;
+  font-size: 3.0rem;
 }
 
 .post-details p {
