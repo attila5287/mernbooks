@@ -38,19 +38,26 @@ function Books() {
 				<Row>
 					<Col size='md-6'>
 						<Jumbotron>
-							<h1>What Books Should I Read?</h1>
+              <h1>
+                <i>Be awesome, be a book nut! </i>
+              </h1>
+              <hr />
+              <h5><i className="text-secondary">
+                Please let this app enjoy being your virtual librarian and type a book title to search:
+              </i>
+              </h5>
 						</Jumbotron>
 						<form>
 							<Input
                 handleInputChange={ ( event ) => handleInputChange( event ) }
 								name='title'
-								placeholder='Title (required)'
+                placeholder='Title (required)'
 							/>
 						</form>
 					</Col>
 					<Col size='md-6 sm-12'>
 						<Jumbotron>
-							<h1>Books On My List</h1>
+							<h1>Search Results</h1>
 						</Jumbotron>
 						{books.length ? (
 							<List>
