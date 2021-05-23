@@ -95,7 +95,7 @@ function Books() {
 						animationInDelay={1250}
 					>
 						<Form.Group className='bg-secondary rounded px-1 h-100'>
-							<Form.Control
+							<Input
 								className='form-control  form-control-lg border-light p-2'
 								handleInputChange={(event) => handleInputChange(event)}
 								name='title'
@@ -128,7 +128,12 @@ function Books() {
 					{books.length ? (
 						<List>
 							{books.map((book, idx) => {
-								return (
+                return (
+                  <Animated
+						animationIn='slideInRight'
+						isVisible={true}
+						animationInDelay={idx*250}
+						>
 									<ListItem key={idx}>
 										<div className='d-flex flex-row justify-content-between bg-secondary p-1 rounded-xl'>
 											<img
@@ -136,7 +141,7 @@ function Books() {
 												alt='thumbnail'
 												className='img-mini rounded-lg shadow'
 											/>
-											<a class='nav-link' href={'/api/book/' + book._id}>
+											<a className='nav-link' href={'/api/book/' + book._id}>
 												<span className='text-capitalize'>
 													{book.volumeInfo.title}
 												</span>{' '}
@@ -154,7 +159,8 @@ function Books() {
 												/>
 											</span>
 										</div>
-									</ListItem>
+                  </ListItem>
+           </Animated>       
 								);
 							})}
 						</List>
