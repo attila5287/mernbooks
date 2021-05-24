@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {Animated} from 'react-animated-css';
 import Col from 'react-bootstrap/Col';
 import Footer from "../Footer";
-import DeleteBtn from "../DeleteBtn";
+import SaveBtn from '../SaveBtn';
 import Form from 'react-bootstrap/Form';
 import {Row, Container} from "../Grid";
 import {List, ListItem} from "../List";
@@ -42,93 +42,93 @@ function Search() {
 
   return (
 		<div className='mini'>
+			<Animated
+				animationIn='bounceInRight'
+				isVisible={true}
+				animationInDelay={1000}
+			>
+				<h2 className=''>
+					<i className='fas fa-caret-down mx-1'></i>
+					Search
+				</h2>
+				<p className='text-left'>
+					<i className='text-xl fas fa-info-circle mx-1'></i>
+					<i>Type book title and check search results simultaneously below</i>
+				</p>
+			</Animated>
 			<Row className='my-2 align-items-center'>
 				<Col xs={2} className='p-2'>
 					<h1 className='maxi bg-secondary text-secondary rounded h-100 w-100'>
 						<i className='fab fa-searchengin'></i>
 					</h1>
 				</Col>
-				<Col xs={10}>
-					<Form.Group className=''>
-						<p className='text-left'>
-							<i className='text-xl fas fa-info-circle mx-1'></i>
-							<i>
-								Type book title and check search results simultaneously below
-							</i>
-						</p>
+				<Col xs={10} >
 						<Input
-							className='form-control border-secondary'
 							handleInputChange={(event) => handleInputChange(event)}
 							name='title'
-							placeholder='Title (required)'
+							placeholder='Search Book Title'
 						/>
-					</Form.Group>
 				</Col>
 			</Row>
 
-			<Row>
-				<Col xs={1} className='text-right px-1'>
-					<Animated
-						animationIn='bounceInUp'
-						isVisible={true}
-						animationInDelay={1500}
-					>
-						<h1 className='text-center medi fas fa-angle-double-down bg-secondary px-2 py-5 rounded-lg'></h1>
-						<div className='rotate-text text-nowrap text-2xl'>
-							<b>
-								<i>Search Results</i>
-								<i className='fas fa-angle-right mx-4 bg-secondary py-2 px-3 rounded'></i>
-							</b>
-						</div>
-					</Animated>
-				</Col>
-				<Col xs={11} className='pl-1'>
-					{books.length ? (
-						<List>
-							{books.map((book, idx) => {
-								return (
-									<Animated
-										animationIn='slideInRight'
-										isVisible={true}
-										animationInDelay={idx * 250}
-									>
-										<ListItem key={idx}>
-											<div className='d-flex flex-row justify-content-between bg-secondary p-1 rounded-xl'>
-												<img
-													src={book?.volumeInfo?.imageLinks?.smallThumbnail}
-													alt='thumbnail'
-													className='img-mini rounded-lg shadow'
-												/>
-												<a className='nav-link' href={'/api/book/' + book?._id}>
-													<span className='text-capitalize'>
-														{book?.volumeInfo?.title}
-													</span>{' '}
-													by{' '}
-													<strong>
-														<i className='text-reg text-primary'>
-															{book?.volumeInfo?.authors
-																? book.volumeInfo.authors[0]
-																: ''}
-														</i>
-													</strong>
-												</a>
-												<span className='fa-pull-right'>
-													<DeleteBtn
-														className='px-1 py-0 rounded-lg bg-danger text-light'
-														onClick={() => {}}
-													/>
-												</span>
-											</div>
-										</ListItem>
-									</Animated>
-								);
-							})}
-						</List>
-					) : (
-						<h3>No Results to Display</h3>
-					)}
-				</Col>
-			</Row>
+			<Animated
+				animationIn='bounceInLeft'
+				isVisible={true}
+				animationInDelay={1500}
+			>
+				<h2 className=''>
+					<i className='fas fa-caret-down mx-1'></i>
+					Search Results
+				</h2>
+				<p className='text-left'>
+					<i className='text-xl fas fa-info-circle mx-1'></i>
+					<i>Save a book by using save buttons </i>
+				</p>
+			</Animated>
+			{books.length ? (
+				<List>
+					{books.map((book, idx) => {
+						return (
+							<Animated
+								animationIn='slideInRight'
+								isVisible={true}
+								animationInDelay={idx * 250}
+							>
+								<ListItem key={idx}>
+									<div className='d-flex flex-row justify-content-between bg-secondary p-1 rounded-xl'>
+										<img
+											src={book?.volumeInfo?.imageLinks?.smallThumbnail}
+											alt='thumbnail'
+											className='img-list rounded-lg shadow'
+										/>
+										<a className='nav-link' href={'/api/book/' + book?._id}>
+											<span className='text-capitalize'>
+												{book?.volumeInfo?.title}
+											</span>{' '}
+											by{' '}
+											<strong>
+												<i className='text-reg text-primary'>
+													{book?.volumeInfo?.authors
+														? book.volumeInfo.authors[0]
+														: ''}
+												</i>
+											</strong>
+										</a>
+										<span className='fa-pull-right'>
+											<SaveBtn
+												className='p-1 rounded-lg bg-info text-dark text-xl'
+												onClick={() => {}}
+											/>
+										</span>
+									</div>
+								</ListItem>
+							</Animated>
+						);
+					})}
+				</List>
+			) : (
+				<h3>No Results to Display</h3>
+			)}
 			<Footer></Footer>
 		</div>
 	);

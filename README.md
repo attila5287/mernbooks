@@ -49,6 +49,7 @@ This application requires at minimum 2 pages, check out the following mockup ima
 - [ ] - 5.1 The layout should include at least two React Components for each page `Search` and `Saved`.
 
 - [ ] - 6. Add the following Express routes for your app:
+
 |Express|Routes|
 |---|---|
 | `/api/books`     |  (get) - Should return all saved books as JSON. |

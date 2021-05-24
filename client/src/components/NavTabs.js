@@ -2,9 +2,9 @@ import React from "react";
 
 function NavTabs(props) {
   return (
-		<ul className='nav nav-tabs nav-fill my-1 align-items-start'>
+		<ul className='mini nav nav-tabs nav-fill my-1 align-items-start'>
 			<li className='nav-item navbar-brand rounded-xl py-0'>
-				<a className='text-2xl nav-link disabled mx-1 bg-transparent'>
+				<a className='text-2xl nav-link mx-1 bg-transparent' href='https://mernbooks.herokuapp.com'>
 					<i className='fab fa-google text-blue'></i>
 					<i className='text-2xl text-success fab fa-react fa-spin'></i>
 					<i className='text-2xl text-info fab fa-react fa-pulse'></i>

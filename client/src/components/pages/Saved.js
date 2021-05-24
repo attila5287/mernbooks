@@ -1,19 +1,31 @@
 import React from "react";
+import Footer from "../Footer";
+import { List, ListItem } from '../List';
+import { Animated } from 'react-animated-css';
 
-const Home = () => (
-  <div>
-    <h1>Home Page</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
-      varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
-      Etiam ut feugiat ex. Cras non risus mi. Curabitur mattis rutrum ipsum, ut aliquet urna
-      imperdiet ac. Sed nec nulla aliquam, bibendum odio eget, vestibulum tortor. Cras rutrum ligula
-      in tincidunt commodo. Morbi sit amet mollis orci, in tristique ex. Donec nec ornare elit.
-      Donec blandit est sed risus feugiat porttitor. Vestibulum molestie hendrerit massa non
-      consequat. Vestibulum vitae lorem tortor. In elementum ultricies tempus. Interdum et malesuada
-      fames ac ante ipsum primis in faucibus.
-    </p>
-  </div>
+
+
+const Saved = () => (
+	<div className='mini'>
+		<Animated
+			animationIn='bounceInRight'
+			isVisible={true}
+			animationInDelay={500}
+		>
+			<h2 className=''>
+				<i className='fas fa-caret-down mx-1'></i>
+				Saved List
+			</h2>
+			<p className='text-left'>
+				<i className='text-xl fas fa-info-circle mx-1'></i>
+				<i>Visit book on Google store by using butons </i>
+			</p>
+    </Animated>
+
+    
+    
+		<Footer></Footer>
+	</div>
 );
 
-export default Home;
+export default Saved;
