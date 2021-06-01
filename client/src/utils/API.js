@@ -9,8 +9,10 @@ export default {
 		);
   },
   // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
+  getBooks: async function () {
+    const res = await axios.get( "/api/books" );
+    console.log('res :>> ', res);
+    return res;
   },
   // Gets the book with the given id
   getBook: function(id) {

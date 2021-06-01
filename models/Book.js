@@ -16,7 +16,7 @@ const BookSchema = new Schema( {
   description: {
     type: String,
     required: true,
-    default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    default: "Lorem ipsum dolor sit amet"
   },
   image: {
     type: String,
