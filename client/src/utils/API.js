@@ -9,7 +9,7 @@ export default {
 		);
   },
   // Gets all books
-  getBooks: async function () {
+  getBooksDB: async function () {
     const res = await axios.get( "/api/books" );
     console.log('res :>> ', res);
     return res;
@@ -25,5 +25,5 @@ export default {
   // Saves a book to the database
   saveBook: function(bookData) {
     return axios.post("/api/books", bookData);
-  }
+  },
 };

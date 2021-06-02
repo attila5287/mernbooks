@@ -4,16 +4,16 @@ function NavTabs(props) {
   return (
 		<ul className='mini nav nav-tabs nav-fill my-1 align-items-start'>
 			<li className='nav-item navbar-brand rounded-xl py-0'>
-				<a className='text-2xl nav-link mx-1 bg-transparent' href='https://mernbooks.herokuapp.com'>
+				<a className='nav-link' href='https://mernbooks.herokuapp.com'>
 					<i className='fab fa-google text-blue'></i>
-					<i className='text-2xl text-success fab fa-react fa-spin'></i>
-					<i className='text-2xl text-info fab fa-react fa-pulse'></i>
+					<i className='text-success fab fa-react fa-spin'></i>
+					<i className='text-info fab fa-react fa-pulse'></i>
 					<span className='text-red'>g</span>
 					<span className='text-blue'>l</span>
 					<span className='text-warning'>e</span>
-					<i className='text-xl fas fa-book-open text-light bg-info p-1 rounded-xl'></i>
+					<i className='fab fa-readme m-0 btn btn-outline-success btn-lg px-1 py-0 rounded-xl'></i>
 				</a>
-				<p className='text-sm text-left text-light my-0'>
+				<p className='text-sm text-center text-light my-0'>
 					<b>
 						<i>
 							search books with

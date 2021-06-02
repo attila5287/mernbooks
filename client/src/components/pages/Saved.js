@@ -2,18 +2,28 @@ import React, { useEffect, useState } from 'react';
 import Footer from '../Footer';
 import { List, ListItem } from '../List';
 import { Animated } from 'react-animated-css';
+import API from '../../utils/API';
+
 
 const Saved = () => {
 	console.log(`Saved test`);
 
-	const [items, setItems] = useState([]);
+	const [saves, setSaves] = useState([]);
+
+	// Load all books and store them with setBooks
+	useEffect(() => {
+		API.getBooksDB()
+			.then((res) => setSaves(res.data.items))
+			.catch((err) => console.log(err));
+  }, [] );
+  
 
 	return (
 		<div className='mini'>
 			<Animated
-				animationIn='bounceInRight'
+				animationIn='bounceInLeft'
 				isVisible={true}
-				animationInDelay={500}
+				animationInDelay={250}
 			>
 				<h2 className=''>
 					<i className='fas fa-caret-down mx-1'></i>
@@ -24,8 +34,13 @@ const Saved = () => {
 					<i>Visit book on Google store by using butons </i>
 				</p>
 			</Animated>
-
-			<Footer></Footer>
+			<Animated
+				animationIn='bounceInRight'
+				isVisible={true}
+				animationInDelay={750}
+			>
+				<Footer></Footer>
+			</Animated>
 		</div>
 	);
 };

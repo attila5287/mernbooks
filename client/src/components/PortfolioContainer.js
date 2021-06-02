@@ -6,7 +6,7 @@ import Search from './pages/Search';
 
 class Portfolio extends Component {
   state = {
-    currentPage: "Search"
+    currentPage: "Saved"
   };
 
   handlePageChange = page => {
