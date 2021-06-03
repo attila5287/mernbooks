@@ -50,20 +50,28 @@ const Saved = () => {
 										alt='thumbnail'
 										className='img-list rounded-lg shadow'
 									/>
-									<a className='nav-link' href={'/api/book/' + book?._id}>
-										<span className='text-capitalize'>
-											{book?.title}
-										</span>{' '}
-										by{' '}
+									<a className='nav-link' href={book?.link}>
+										<span className='text-capitalize'>{book?.title}</span> by{' '}
 										<strong>
 											<i className='text-reg text-primary'>
-												{book?.authors
-													? book.authors[0]
-													: ''}
+												{book?.authors ? book.authors[0] : ''}
 											</i>
 										</strong>
 									</a>
-									<span className='fa-pull-right'>
+									<span className='btn btn-group-vertical'>
+										<a
+											className='btn btn-primary btn-sm h-100'
+											type='button'
+											href={book?.link}
+										>
+											<i className='text-light fab fa-fw fa-google my-4'></i>
+										</a>
+										<button
+											className='btn btn-outline-primary btn-sm'
+											type='button'
+										>
+											<i className='text-light fa-fw fas fa-times'></i>
+										</button>
 									</span>
 								</div>
 							</ListItem>
