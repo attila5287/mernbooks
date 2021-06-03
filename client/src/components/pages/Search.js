@@ -6,7 +6,7 @@ import SaveBtn from '../SaveBtn';
 import Form from 'react-bootstrap/Form';
 import {Row, Container} from "../Grid";
 import {List, ListItem} from "../List";
-import {Input, TextArea, FormBtn} from "../Form";
+import {Input} from "../Form";
 import API from '../../utils/API';
 
 function Search() {
@@ -87,12 +87,12 @@ function Search() {
 				<List>
 					{books.map((book, idx) => {
 						return (
+              <ListItem key={idx}>
 							<Animated
 								animationIn='slideInRight'
 								isVisible={true}
 								animationInDelay={idx * 250}
 							>
-								<ListItem key={idx}>
 									<div className='d-flex flex-row justify-content-between bg-secondary p-1 rounded-xl'>
 										<img
 											src={book?.volumeInfo?.imageLinks?.smallThumbnail}
@@ -112,15 +112,21 @@ function Search() {
 												</i>
 											</strong>
 										</a>
-										<span className='fa-pull-right'>
-											<SaveBtn
-												className='p-1 rounded-lg bg-info text-dark text-xl'
-												onClick={() => {}}
+                      <SaveBtn
+                        onClick={ ( event ) => {
+                          let obj = {
+                            title: book?.volumeInfo?.title || 'title',
+                            description : book?.volumeInfo?.description || 'desc',
+                            authors : book?.volumeInfo?.authors || [],
+                            image : book?.volumeInfo?.imageLinks?.smallThumbnail || 'image-link',
+                            link : book?.selfLink,
+                          }
+                          console.table(obj)
+                        }}
 											/>
-										</span>
 									</div>
-								</ListItem>
 							</Animated>
+								</ListItem>
 						);
 					})}
 				</List>

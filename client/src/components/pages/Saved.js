@@ -38,12 +38,12 @@ const Saved = () => {
 			<List>
 				{saves.map((book, idx) => {
 					return (
+            <ListItem key={'id ' + idx}>
 						<Animated
 							animationIn='slideInRight'
 							isVisible={true}
 							animationInDelay={idx * 250}
 						>
-							<ListItem key={idx}>
 								<div className='d-flex flex-row justify-content-between bg-secondary p-1 rounded-xl'>
 									<img
 										src={book?.image}
@@ -74,8 +74,8 @@ const Saved = () => {
 										</button>
 									</span>
 								</div>
-							</ListItem>
 						</Animated>
+							</ListItem>
 					);
 				})}
 			</List>
