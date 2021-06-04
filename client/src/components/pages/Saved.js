@@ -64,13 +64,13 @@ const Saved = () => {
 											type='button'
 											href={book?.link}
 										>
-											<i className='text-light fab fa-fw fa-google my-4'></i>
+											<h3 className='text-light fab fa-google-plus-g align-self-middle'></h3>
 										</a>
 										<button
 											className='btn btn-outline-primary btn-sm'
 											type='button'
 										>
-											<i className='text-light fa-fw fas fa-times'></i>
+											<h4 className='text-light fas fa-times mt-2'></h4>
 										</button>
 									</span>
 								</div>

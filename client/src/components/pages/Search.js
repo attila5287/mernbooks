@@ -80,53 +80,79 @@ function Search() {
 				</h2>
 				<p className='text-left'>
 					<i className='text-xl fas fa-info-circle mx-1'></i>
-					<i>Save a book by using save buttons </i>
+          <i>Save a book by using
+					  <i className='fas fa-save mx-1'></i>
+              save buttons
+          </i>
 				</p>
 			</Animated>
-			{books.length ? (
+			{books?.length ? (
 				<List>
 					{books.map((book, idx) => {
 						return (
-              <ListItem key={idx}>
-							<Animated
-								animationIn='slideInRight'
-								isVisible={true}
-								animationInDelay={idx * 250}
-							>
-									<div className='d-flex flex-row justify-content-between bg-secondary p-1 rounded-xl'>
+							<ListItem key={idx}>
+								<Animated
+									animationIn='slideInRight'
+									isVisible={true}
+									animationInDelay={idx * 250}
+								>
+									<div className='d-flex flex-row justify-content-between align-items-start bg-secondary rounded px-3 py-2'>
 										<img
 											src={book?.volumeInfo?.imageLinks?.smallThumbnail}
 											alt='thumbnail'
-											className='img-list rounded-lg shadow'
+											className='img-list'
 										/>
-										<a className='nav-link' href={'/api/book/' + book?._id}>
-											<span className='text-capitalize'>
-												{book?.volumeInfo?.title}
-											</span>{' '}
-											by{' '}
-											<strong>
-												<i className='text-reg text-primary'>
-													{book?.volumeInfo?.authors
-														? book.volumeInfo.authors[0]
-														: ''}
+										<span className='w-100 h-100 rounded-xl'>
+											<h5 className='text-capitalize mb-0'>
+												<span className='text-titlecase text-capitalize text-blue'>
+													<i className='fas fa-book mx-1'></i>
+
+													{book?.volumeInfo?.title}
+												</span>
+												<a className='text-primary' href='/by/author/'>
+													{' by '}
+													<i className='fas fa-user-edit mx-0'></i>
+													{book?.volumeInfo?.authors?.map((a, i) => (
+														<i
+															className='text-primary'
+															href='/by/author/'
+															className='text-titlecase'
+														>
+															{a}
+														</i>
+													))}
+												</a>
+											</h5>
+											<p className='text-left text-dark bg-secondary rounded-2xl p-1 m-3 mt-1 pt-0'>
+												<i className='fab fa-readme text-dark mx-1'></i>
+												<i>
+													{book?.volumeInfo?.description
+														?.slice(0, 250)
+														?.slice(0, 500)}{' '}
 												</i>
-											</strong>
-										</a>
-                      <SaveBtn
-                        onClick={ ( event ) => {
-                          let obj = {
-                            title: book?.volumeInfo?.title || 'title',
-                            description : book?.volumeInfo?.description || 'desc',
-                            authors : book?.volumeInfo?.authors || [],
-                            image : book?.volumeInfo?.imageLinks?.smallThumbnail || 'image-link',
-                            link : book?.selfLink,
-                          }
-                          console.table(obj)
-                        }}
-											/>
+											</p>
+										</span>
+										<SaveBtn
+											onClick={(event, index) => {
+												let obj = {
+													title: book?.volumeInfo?.title || 'title',
+													description: book?.volumeInfo?.description || 'desc',
+													authors: book?.volumeInfo?.authors || [],
+													image:
+														book?.volumeInfo?.imageLinks?.smallThumbnail ||
+														'image-link',
+													link: book?.selfLink
+												};
+
+												console.log(index);
+												console.log(':>> obj ----> save to db');
+												console.log(obj);
+												console.log(':>> obj ----> saved');
+											}}
+										/>
 									</div>
-							</Animated>
-								</ListItem>
+								</Animated>
+							</ListItem>
 						);
 					})}
 				</List>
