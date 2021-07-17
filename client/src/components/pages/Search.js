@@ -79,9 +79,9 @@ function Search() {
 					Search Results
 				</h2>
 				<p className='text-left'>
-					<i className='text-xl fas fa-info-circle mx-1'></i>
+					<i className='text-lg fas fa-info-circle mx-1'></i>
           <i>Save a book by using
-					  <i className='fas fa-save mx-1'></i>
+					  <i className='text-lg fas fa-save mx-1'></i>
               save buttons
           </i>
 				</p>
@@ -90,40 +90,46 @@ function Search() {
 				<List>
 					{books.map((book, idx) => {
 						return (
-							<ListItem key={idx}>
+							<ListItem key={idx * Math.floor(Math.random() * 10000)}>
 								<Animated
 									animationIn='slideInRight'
 									isVisible={true}
-									animationInDelay={idx * 250}
-								>
-									<div className='d-flex flex-row justify-content-between align-items-start bg-secondary rounded px-3 py-2'>
+                  animationInDelay={ idx * 250 }
+                  className='d-flex flex-row justify-content-between align-items-center bg-secondary rounded-2xl'
+                >
 										<img
 											src={book?.volumeInfo?.imageLinks?.smallThumbnail}
 											alt='thumbnail'
 											className='img-list'
 										/>
-										<span className='w-100 h-100 rounded-xl'>
-											<h5 className='text-capitalize mb-0'>
-												<span className='text-titlecase text-capitalize text-blue'>
+										<span className='pt-2'>
+											<h4 className='mb-0'>
+												<a className='text-capitalize disabled' >
 													<i className='fas fa-book mx-1'></i>
-
-													{book?.volumeInfo?.title}
-												</span>
-												<a className='text-primary' href='/by/author/'>
+                        <em>
+                          { book?.volumeInfo?.title }
+                          </em>
+												</a>
+												<a
+													className='text-primary'
+													href='/by/author/'
+												>
 													{' by '}
 													<i className='fas fa-user-edit mx-0'></i>
 													{book?.volumeInfo?.authors?.map((a, i) => (
-														<i
+														<a
 															className='text-primary'
 															href='/by/author/'
-															className='text-titlecase'
-														>
+                            >
+                              <em>
 															{a}
-														</i>
+                              </em>
+                                
+														</a>
 													))}
 												</a>
-											</h5>
-											<p className='text-left text-dark bg-secondary rounded-2xl p-1 m-3 mt-1 pt-0'>
+											</h4>
+											<p className=''>
 												<i className='fab fa-readme text-dark mx-1'></i>
 												<i>
 													{book?.volumeInfo?.description
@@ -134,23 +140,21 @@ function Search() {
 										</span>
 										<SaveBtn
 											onClick={(event, index) => {
-												let obj = {
+												API.saveBook({
 													title: book?.volumeInfo?.title || 'title',
 													description: book?.volumeInfo?.description || 'desc',
-													authors: book?.volumeInfo?.authors || [],
+													authors: 'by '.concat(...book?.volumeInfo?.authors),
 													image:
 														book?.volumeInfo?.imageLinks?.smallThumbnail ||
 														'image-link',
 													link: book?.selfLink
-												};
-
-												console.log(index);
-												console.log(':>> obj ----> save to db');
-												console.log(obj);
-												console.log(':>> obj ----> saved');
+												})
+													.then(() => {
+														console.log(':>> success');
+													})
+													.catch((err) => console.log(err));
 											}}
 										/>
-									</div>
 								</Animated>
 							</ListItem>
 						);

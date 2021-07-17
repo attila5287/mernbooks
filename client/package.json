@@ -1,17 +1,18 @@
 {
 	"name": "mern",
 	"version": "0.1.0",
+	"type": "module",
 	"description": "client side for MERN app for book search via Google Books API to be deployed on heroku",
 	"private": true,
-	"proxy": "http://localhost:3001/",
+	"proxy": "http://127.0.0.1:3000/",
 	"dependencies": {
 		"axios": "^0.21.1",
 		"bootswatch": "^5.0.1",
-		"react": "^16.13.1",
+		"react": "^17.0.2",
 		"react-animated-css": "^1.2.1",
-		"react-bootstrap": "^1.6.0",
-		"react-dom": "^16.13.1",
-		"react-scripts": "3.4.3"
+		"react-bootstrap": "^1.6.1",
+		"react-dom": "^17.0.2",
+		"react-scripts": "4.0.3"
 	},
 	"scripts": {
 		"start": "react-scripts start",

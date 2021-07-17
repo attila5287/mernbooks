@@ -1,11 +1,11 @@
 const mongoose = require( "mongoose" );
 const Schema = mongoose.Schema;
 
-// `title` Title of the book from the Google Books API|
-// `authors` The books's author(s) as returned from the Google Books API|
-// `description` The book's description as returned from the Google Books 
-// `image` The Book's thumbnail image as returned from the Google Books 
-// `link` The Book's information link as returned from the Google Books 
+// `title` Title of the book from the |
+// `authors` bks's author(s) |
+// `description` bk's description via GB 
+// `image` bk's thumbnail image via GB 
+// `link` bk's information link via GB 
 
 const BookSchema = new Schema( {
   title: {
@@ -28,14 +28,11 @@ const BookSchema = new Schema( {
     required: true,
     default: "https://books.google.com/books?id=rAm1AAAAIAAJ&source=gbs_similarbooks"
   },
-  authors: [ {
-    author: {
-      type: String,
-      required: true,
-      default: "Anonymous",
-      trim: true
-    },
-  } ]
+  author: {
+    type: String,
+    required: true,
+    default: "AnonWriter"
+  },
 } )
 
 const Book = mongoose.model( "Book", BookSchema );

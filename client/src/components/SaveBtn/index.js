@@ -5,8 +5,8 @@ import "./style.css";
 // That way we don't have to define them all individually
 function SaveBtn(props) {
   return (
-    <button className="btn btn-lg btn-outline-primary" {...props} role="button" tabIndex="0">
-      <h1 className='fas fa-save'></h1>
+    <button className="btn btn-lg btn-outline-primary border-0" {...props} role="button" tabIndex="0">
+      <h1 className='far fa-save'></h1>
     </button>
   );
 }
